@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://mtvafffmaycp"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_21nfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj0gt"]
+size = Vector2(900, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktu3n"]
+radius = 20.0
+height = 60.0
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(528, 371)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_kj0gt")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(780, 278)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_21nfx")
+move_right = "ui_right"
+move_left = "ui_left"
+jump = "ui_up"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_ktu3n")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(304, 292)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_21nfx")
+move_right = "p2_right"
+move_left = "p2_left"
+jump = "p2_jump"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("CapsuleShape2D_ktu3n")
