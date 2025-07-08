@@ -35,4 +35,8 @@ func _physics_process(delta):
 		other_player.velocity.x= velocity.x
 		other_player.move_and_slide()
 
+		PhysicsServer2D.body_set_mode(other_player.get_rid(), PhysicsServer2D.BODY_MODE_STATIC)
+		other_player.force_update_transform()
+		PhysicsServer2D.body_set_mode(other_player.get_rid(), PhysicsServer2D.BODY_MODE_KINEMATIC)
+
 	move_and_slide()
